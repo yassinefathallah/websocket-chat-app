@@ -69,5 +69,4 @@ GitHub: [yassinefathallah](https://github.com/yassinefathallah)
 
 ---
 
-## License
-MIT License — 2025
+
