@@ -2,18 +2,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Spring Boot WebSocket Chat Application</title>
+    <title>Yassine Fathallah — WebSocket Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
+
 <noscript>
     <h2>Sorry! Your browser doesn't support Javascript</h2>
 </noscript>
 
+<!-- USERNAME PAGE -->
 <div id="username-page">
     <div class="username-page-container">
-
-        <!-- Photo de marque + badge WebSocket -->
         <div class="brand">
             <img class="brand-avatar" src="/img/profile.jpg" alt="Yassine Fathallah" />
             <div class="brand-name">Yassine Fathallah</div>
@@ -22,44 +23,86 @@
                 WebSocket Application
             </div>
         </div>
-
-        <h1 class="title">Type your username to enter the Chatroom</h1>
+        <div class="ws-info">
+            <div class="ws-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#58a6ff" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </div>
+            <div class="ws-text">
+                <div class="ws-label">Real-time WebSocket Chat + Video Call</div>
+                <div class="ws-desc">STOMP / SockJS / WebRTC</div>
+            </div>
+        </div>
+        <p class="title">Enter your username to join the chatroom</p>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
                 <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
             </div>
             <div class="form-group">
-                <button type="submit" class="accent username-submit">Start Chatting</button>
+                <button type="submit" class="accent">Start Chatting</button>
             </div>
         </form>
     </div>
 </div>
 
+<!-- CHAT PAGE -->
 <div id="chat-page" class="hidden">
     <div class="chat-container">
+
         <div class="chat-header">
-            <!-- Photo dans le header du chat -->
             <img src="/img/profile.jpg" alt="YF" />
-            <div class="header-info">
-                <h2>Yassine Fathallah — Chat</h2>
-                <div class="ws-badge">
+            <div class="info">
+                <h2>Yassine Fathallah</h2>
+                <div class="header-badge">
                     <span class="dot"></span> WebSocket Live Chat
                 </div>
             </div>
+            <!-- VIDEO CALL BUTTON -->
+            <button id="call-btn" class="call-button" onclick="startCall()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                    <path d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"/>
+                </svg>
+                Video Call
+            </button>
+            <div class="status-dot"></div>
         </div>
-        <div class="connecting">
-            Connecting...
+
+        <!-- VIDEO CALL PANEL — hidden by default -->
+        <div id="call-panel" class="hidden call-panel">
+            <div class="videos-container">
+                <div class="video-wrap">
+                    <video id="remoteVideo" autoplay playsinline></video>
+                    <div class="video-label">Remote</div>
+                </div>
+                <div class="video-wrap">
+                    <video id="localVideo" autoplay playsinline muted></video>
+                    <div class="video-label">You</div>
+                </div>
+            </div>
+            <div class="call-controls">
+                <span id="call-status" class="call-status">Connecting...</span>
+                <button id="mute-btn" class="ctrl-btn" onclick="toggleMute()">Mute</button>
+                <button id="cam-btn" class="ctrl-btn" onclick="toggleCamera()">Hide Cam</button>
+                <button class="ctrl-btn end-btn" onclick="endCall()">End Call</button>
+            </div>
         </div>
-        <ul id="messageArea">
-        </ul>
+
+        <div class="connecting">Connecting...</div>
+
+        <ul id="messageArea"></ul>
+
         <form id="messageForm" name="messageForm">
             <div class="form-group">
                 <div class="input-group clearfix">
-                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                    <input type="text" id="message" placeholder="Type a message..."
+                           autocomplete="off" class="form-control"/>
                     <button type="submit" class="primary">Send</button>
                 </div>
             </div>
         </form>
+
     </div>
 </div>
 
