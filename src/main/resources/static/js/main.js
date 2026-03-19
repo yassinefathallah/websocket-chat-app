@@ -27,18 +27,18 @@ var rtcConfig = {
         // TURN — relays video when direct connection fails
         {
             urls: 'turn:a.relay.metered.ca:80',
-            username: 'REMPLACER_PAR_VOTRE_USERNAME',
-            credential: 'REMPLACER_PAR_VOTRE_PASSWORD'
+            username: '54f9fb11ff57568a7f86cc55',
+            credential: 'tW/iF+4umwjXsMdQ'
         },
         {
             urls: 'turn:a.relay.metered.ca:443',
-            username: 'REMPLACER_PAR_VOTRE_USERNAME',
-            credential: 'REMPLACER_PAR_VOTRE_PASSWORD'
+            username: '54f9fb11ff57568a7f86cc55',
+            credential: 'tW/iF+4umwjXsMdQ'
         },
         {
             urls: 'turns:a.relay.metered.ca:443',
-            username: 'REMPLACER_PAR_VOTRE_USERNAME',
-            credential: 'REMPLACER_PAR_VOTRE_PASSWORD'
+            username: '54f9fb11ff57568a7f86cc55',
+            credential: 'tW/iF+4umwjXsMdQ'
         }
     ],
     // Force TURN relay — guarantees connection even behind firewall
