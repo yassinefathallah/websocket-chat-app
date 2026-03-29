@@ -4,7 +4,7 @@
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6db33f?style=flat&logo=springboot)
 ![WebSocket](https://img.shields.io/badge/WebSocket-STOMP-blue?style=flat)
 ![Java](https://img.shields.io/badge/Java-17+-orange?style=flat&logo=openjdk)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+
 
 > Real-time group chat built with Spring Boot, WebSocket, STOMP and SockJS.
 > Echtzeit-Gruppen-Chat mit Spring Boot, WebSocket, STOMP und SockJS.
